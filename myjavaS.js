@@ -1,8 +1,12 @@
 let thread_id, time_in_minutes = 00,
     time_in_seconds = 00;
+let start_element = document.getElementById("start_id"),
+    stop_element = document.getElementById("stop_id"),
+    reset_element = document.getElementById("reset_id");
 display();
-stop_id.setAttribute("disabled", true);
-reset_id.setAttribute("disabled", true);
+
+stop_element.setAttribute("disabled", true);
+reset_element.setAttribute("disabled", true);
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -26,16 +30,16 @@ function time_getting_function() {
 function start_function() {
 
     thread_id = setInterval(time_getting_function, 1000);
-    start_id.setAttribute("disabled", true);
-    stop_id.removeAttribute("disabled");
-    reset_id.setAttribute("disabled", true);
+    start_element.setAttribute("disabled", true);
+    stop_element.removeAttribute("disabled");
+    reset_element.setAttribute("disabled", true);
 }
 
 function stop_function() {
     clearInterval(thread_id);
-    stop_id.setAttribute("disabled", true);
-    reset_id.removeAttribute("disabled");
-    start_id.removeAttribute("disabled");
+    stop_element.setAttribute("disabled", true);
+    reset_element.removeAttribute("disabled");
+    start_element.removeAttribute("disabled");
 }
 
 function reset_function() {
